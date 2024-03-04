@@ -1,0 +1,231 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0",
+    "description": "Documentação da API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/companies": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/companies/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/jobs/not-published": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/feed": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/job": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "createJob",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Desenvolvedor FullStack"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Procuramos um desenvolvedor Full Stack apaixonado por tecnologia para integrar nossa equipe e contribuir com o desenvolvimento de soluções inovadoras."
+                },
+                "location": {
+                  "type": "string",
+                  "example": "São Paulo/SP"
+                },
+                "fk_company_id": {
+                  "type": "string",
+                  "example": "e4b174c0-a3f1-45bd-8daf-d3f1b9d4c83b"
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "location",
+                "fk_company_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/job/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "updateJob",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Desenvolvedor FullStack"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Procuramos um desenvolvedor Full Stack apaixonado por tecnologia para integrar nossa equipe e contribuir com o desenvolvimento de soluções inovadoras."
+                },
+                "location": {
+                  "type": "string",
+                  "example": "São Paulo/SP"
+                },
+                "status_job": {
+                  "type": "string",
+                  "example": "draft"
+                },
+                "fk_company_id": {
+                  "type": "string",
+                  "example": "e4b174c0-a3f1-45bd-8daf-d3f1b9d4c83b"
+                }
+              },
+              "required": [
+                "title",
+                "description",
+                "location",
+                "status_job",
+                "fk_company_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/job/{id}/publish": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/job/{id}/archive": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

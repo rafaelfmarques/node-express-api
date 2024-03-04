@@ -1,0 +1,11 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "testRegex": "(/__tests__/.*|(\\.|/)(e2e-spec))\\.(js?|ts?)$",
+  "transform": {
+    "^.+\\.(ts|js)$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  }
+}

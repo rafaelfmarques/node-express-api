@@ -1,0 +1,6 @@
+prisma/
+serverless/
+__tests__
+dist
+.build
+swagger-config.ts

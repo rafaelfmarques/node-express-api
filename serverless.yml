@@ -1,0 +1,48 @@
+service: handler-jobs
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  region: sa-east-1
+
+functions:
+  publishJobs:
+    handler: src/functions/main.publishJobs
+    events:
+      - schedule: rate(5 minutes)
+      - sqs:
+          arn: arn:aws:sqs:sa-east-1:192498363478:unpublish-job
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - s3:GetObject
+          - s3:PutObject
+          - sqs:ReceiveMessage
+          - sqs:SendMessage
+        Resource: "*"
+
+  unpublishJobs:
+    handler: src/functions/main.unpublishJobs
+    events:
+      - schedule: rate(5 minutes)
+      - sqs:
+          arn: arn:aws:sqs:sa-east-1:192498363478:publish-jobs
+
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - s3:GetObject
+          - s3:PutObject
+          - sqs:ReceiveMessage
+          - sqs:SendMessage
+        Resource: "*"
+
+package:
+  exclude:
+    - node_modules/**
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-optimize
+  - serverless-dotenv-plugin

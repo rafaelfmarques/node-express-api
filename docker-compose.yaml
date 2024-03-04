@@ -1,0 +1,10 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: plooral_db
+      POSTGRES_USER: plooral_user
+      POSTGRES_PASSWORD: plooral_password
